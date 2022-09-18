@@ -1,6 +1,12 @@
+
+
 public class fun{
     public static void main(String[] args) {
-        System.out.println("hallo");
+
+        Person p=Person.create_person(1, "belal", "Email@gmail", "22222");
+        Person.read_person_date(p);
+        Person.update_person_data(p, 2, "khaled", "essss@", "5555");
+        Person.read_person_date(p);
     }
 }
 class Person{
@@ -37,6 +43,29 @@ class Person{
         return this.phone_number;
     }
     public Person(){
-        
+
+    }
+    public static Person create_person(int id,String name,String email,String phone_number){
+        Person p=new Person();
+        p.set_id(id);
+        p.set_name(name);
+        p.set_email(email);
+        p.set_phone_number(phone_number);
+        return p;
+    }
+    public static void read_person_date(Person p){
+        System.out.println(" "+p.git_id()+" "+p.git_name()+" "+p.git_email()+" "+p.git_phone_number());
+    }
+    public static void update_person_data(Person p,int id,String name,String email,String phone_number){
+        p.set_id(id);
+        p.set_name(name);
+        p.set_email(email);
+        p.set_phone_number(phone_number);
+    }
+    public static void delete_person_data(Person p){
+        p.id=0;
+        p.name=null;
+        p.email_adress=null;
+        p.phone_number=null;
     }
 }
